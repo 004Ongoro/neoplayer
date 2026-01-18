@@ -1,0 +1,402 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --background-dark: #1a1a1a;
+    --background-light: #2d2d2d;
+    --text-color: #ecf0f1;
+    --text-secondary: #bdc3c7;
+    --border-color: #34495e;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 300px;
+    background-color: var(--secondary-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+.logo i {
+    font-size: 2rem;
+}
+
+.sidebar-section {
+    margin-bottom: 30px;
+}
+
+.sidebar-section h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Playlist Styles */
+.playlist {
+    list-style: none;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.playlist-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.playlist-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.playlist-item.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.playlist-item i {
+    color: var(--primary-color);
+}
+
+.playlist-item.active i {
+    color: white;
+}
+
+/* Control Buttons */
+.control-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.control-btn {
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.control-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Settings */
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.setting-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.setting-item label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.setting-item input[type="range"] {
+    width: 100%;
+    height: 5px;
+    background: var(--background-light);
+    border-radius: 5px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.setting-item input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.setting-item select {
+    padding: 5px;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-btn:hover {
+    background-color: #2980b9;
+}
+
+.current-file {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Player Container */
+.player-container {
+    flex: 1;
+    position: relative;
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media-player {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.placeholder {
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.placeholder i {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.placeholder p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.placeholder-btn {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+/* Custom Controls */
+.custom-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.player-container:hover .custom-controls {
+    opacity: 1;
+}
+
+.progress-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress {
+    position: absolute;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    width: 0%;
+}
+
+.time-display {
+    color: white;
+    font-size: 0.9rem;
+    min-width: 100px;
+}
+
+.control-buttons-main {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.control-btn-main {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn-main:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* File Info */
+.file-info {
+    background-color: var(--background-light);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.file-info h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+}
+
+#fileInfo p {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+    
+    .control-buttons {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

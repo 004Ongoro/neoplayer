@@ -1,0 +1,43 @@
+{
+  "name": "electron-media-player",
+  "version": "1.0.0",
+  "description": "A feature-rich media player built with Electron",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon --watch src --exec electron .",
+    "build": "electron-builder",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux"
+  },
+  "keywords": ["media", "player", "electron", "video", "audio"],
+  "author": "George Ongoro",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest",
+    "nodemon": "latest"
+  },
+  "build": {
+    "appId": "com.yourname.mediaplayer",
+    "productName": "Media Player",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "AudioVideo"
+    }
+  }
+}
